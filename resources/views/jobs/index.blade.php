@@ -21,8 +21,12 @@
                         <i class="fa fa-clock" aria-hidden="true"></i>&nbsp;&nbsp;fulltime
                     </td>
                     <td><i class="fa fa-map-marker" aria-hidden="true"></i>Address:{{ $job->address }}</td>
-                    <td><i class="fa fa-globe" aria-hidden="true"></i>Date:{{ $job->created_at }}</td>
-                    <td><button class="btn btn-success btn-sm">Apply</button></td>
+                    <td><i class="fa fa-globe" aria-hidden="true"></i>Date:{{ $job->created_at->diffForHumans() }}</td>
+                    <td>
+                        <a href="{{ route('jobs.show', [$job->id, $job->slug]) }}">
+                            <button class="btn btn-success btn-sm">Apply</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
