@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    public function index($id, Company $name)
+    public function index($id, Company $company)
     {
-        return view ('company.index', compact('name'));
+        return view ('company.index', compact('company'));
     }
 }
