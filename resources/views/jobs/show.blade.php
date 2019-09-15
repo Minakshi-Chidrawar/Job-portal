@@ -32,6 +32,11 @@
                     <p>Date: {{ $job->created_at->diffForHumans() }}</p>
                 </div>
             </div>
+
+            <br>
+            @if(Auth::check() && user()->user_type='seeker')
+                <div class="btn btn-success full-width">Apply</div>
+            @endif
         </div>
     </div>
 </div>
