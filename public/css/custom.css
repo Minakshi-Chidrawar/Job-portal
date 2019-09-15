@@ -5,3 +5,11 @@
 .full-width {
     width: 100%;
 }
+
+.thumbnail {
+    width: 100px;
+}
+
+.width-80 {
+    width: 80px;
+}
