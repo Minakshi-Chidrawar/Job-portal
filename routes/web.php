@@ -20,3 +20,6 @@ Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
 
 //company
 Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
+
+// User profile
+Route::get('/user/profile', 'UserController@index');
