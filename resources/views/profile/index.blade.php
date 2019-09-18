@@ -42,9 +42,15 @@
 
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">Your information</div>
+                <div class="card-header">About you</div>
                 <div class="card-body">
-                    details of user
+                    <p>Name: {{ Auth::user()->name }}</p>
+                    <p>Email: {{ Auth::user()->email }}</p>
+                    <p>Address: {{ Auth::user()->profile->address }}</p>
+                    <p>Gender: {{ Auth::user()->profile->gender }}</p>
+                    <p>Experience: {{ Auth::user()->profile->experience }}</p>
+                    <p>Bio: {{ Auth::user()->profile->bio }}</p>
+                    <p>Member On: {{ Auth()->user()->created_at }}</p>
                 </div>
             </div>
             <br>
