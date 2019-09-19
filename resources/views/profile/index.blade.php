@@ -14,17 +14,17 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Address</label>
-                            <input type="text" class="form-control" name="address">
+                            <input type="text" class="form-control" name="address" value="{{ Auth::user()->profile->address }}">
                         </div>
 
                         <div class="form-group">
                             <label for="">Experience</label>
-                            <textarea name="experience" class="form-control" id="" cols="30" rows="10"></textarea>
+                            <textarea name="experience" class="form-control" id="" cols="30" rows="10">{{ Auth::user()->profile->experience }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="">Bio</label>
-                            <textarea name="bio" class="form-control" id="" cols="30" rows="10"></textarea>
+                            <textarea name="bio" class="form-control" id="" cols="30" rows="10">{{ Auth::user()->profile->bio }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -54,14 +54,17 @@
                 </div>
             </div>
             <br>
-            <div class="card">
-                <div class="card-header">Update coverletter</div>
-                <div class="card-body">
-                    <input type="file" class="form-control" name="cover_letter">
-                    <br>
-                    <button class="btn btn-success float-right">Update</button>
+            <form action="{{ route('cover.letter') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card">
+                    <div class="card-header">Update coverletter</div>
+                    <div class="card-body">
+                        <input type="file" class="form-control" name="cover_letter">
+                        <br>
+                        <button class="btn btn-success float-right">Update</button>
+                    </div>
                 </div>
-            </div>
+            </form>
             <br>
             <div class="card">
                 <div class="card-header">Update resume</div>
