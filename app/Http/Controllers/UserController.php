@@ -35,4 +35,17 @@ class UserController extends Controller
 
         return redirect()->back()->with('message', 'Cover letter Updated Successfully!');
     }
+    
+    public function resume(Request $request)
+    {
+        //dd($request);
+        $user_id = auth()->user()->id;
+        $resume = $request->file('resume')->store('public/files');
+
+        Profile::where('user_id', $user_id)->update([
+            'resume' => $resume
+        ]);
+
+        return redirect()->back()->with('message', 'Resume Updated Successfully!');
+    }
 }
