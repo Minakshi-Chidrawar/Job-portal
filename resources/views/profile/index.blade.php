@@ -50,7 +50,7 @@
                     <p>Gender: {{ Auth::user()->profile->gender }}</p>
                     <p>Experience: {{ Auth::user()->profile->experience }}</p>
                     <p>Bio: {{ Auth::user()->profile->bio }}</p>
-                    <p>Member On: {{ Auth()->user()->created_at }}</p>
+                    <p>Member On: {{ date('F d Y', strtotime(Auth()->user()->created_at)) }}</p>
                 </div>
             </div>
             <br>
