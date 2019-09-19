@@ -59,6 +59,14 @@
                     @else
                         <p>Please upload cover letter</p>
                     @endif
+
+                    @if(!empty(Auth::user()->profile->resume))
+                        <p>
+                            <a href="{{ Storage::url(Auth::user()->profile->resume) }}">Resume</a>
+                        </p>
+                    @else
+                        <p>Please upload resume</p>
+                    @endif
                 </div>
             </div>
             <br>
