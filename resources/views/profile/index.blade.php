@@ -66,14 +66,18 @@
                 </div>
             </form>
             <br>
-            <div class="card">
-                <div class="card-header">Update resume</div>
-                <div class="card-body">
-                    <input type="file" class="form-control" name="resume">
-                    <br>
-                    <button class="btn btn-success float-right">Update</button>
+
+            <form action="{{ route('resume') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card">
+                    <div class="card-header">Update resume</div>
+                    <div class="card-body">
+                        <input type="file" class="form-control" name="resume">
+                        <br>
+                        <button class="btn btn-success float-right">Update</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
