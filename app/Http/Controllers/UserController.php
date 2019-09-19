@@ -23,4 +23,16 @@ class UserController extends Controller
 
         return redirect()->back()->with('message', 'Profile Successfully Updated!');
     }
+
+    public function coverletter(Request $request)
+    {
+        $user_id = auth()->user()->id;
+        $cover = $request->file('cover_letter')->store('public/files');
+
+        Profile::where('user_id', $user_id)->update([
+            'cover_letter' => $cover
+        ]);
+
+        return redirect()->back()->with('message', 'Cover letter Updated Successfully!');
+    }
 }
