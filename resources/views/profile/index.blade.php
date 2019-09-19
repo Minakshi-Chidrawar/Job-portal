@@ -51,6 +51,14 @@
                     <p>Experience: {{ Auth::user()->profile->experience }}</p>
                     <p>Bio: {{ Auth::user()->profile->bio }}</p>
                     <p>Member On: {{ date('F d Y', strtotime(Auth()->user()->created_at)) }}</p>
+
+                    @if(!empty(Auth::user()->profile->cover_letter))
+                        <p>
+                            <a href="{{ Storage::url(Auth::user()->profile->cover_letter) }}">Cover letter </a>
+                        </p>
+                    @else
+                        <p>Please upload cover letter</p>
+                    @endif
                 </div>
             </div>
             <br>
