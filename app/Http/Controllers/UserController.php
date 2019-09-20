@@ -38,7 +38,6 @@ class UserController extends Controller
     
     public function resume(Request $request)
     {
-        //dd($request);
         $user_id = auth()->user()->id;
         $resume = $request->file('resume')->store('public/files');
 
@@ -47,5 +46,24 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Resume Updated Successfully!');
+    }
+
+    public function avatar(Request $request)
+    {
+        $user_id = auth()->user()->id;
+
+        if ($request->hasfile('avatar'))
+        {
+            $file = $request->file('avatar');
+            $ext = $file->getClientOriginalExtension();
+            $filename = rand(1, 9999) . time() . '.' . $ext;
+            $file->move('uploads/avatar/', $filename);
+
+            Profile::where('user_id', $user_id)->update([
+                'avatar' => $filename
+            ]);
+    
+            return redirect()->back()->with('message', 'Profile picture Updated Successfully!');
+        }
     }
 }
