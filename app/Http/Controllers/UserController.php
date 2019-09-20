@@ -33,6 +33,10 @@ class UserController extends Controller
 
     public function coverletter(Request $request)
     {
+        $this->validate($request, [
+            'cover_letter' => 'required|mimes:pdf,doc,docx|size:20000'
+        ]);
+
         $user_id = auth()->user()->id;
         $cover = $request->file('cover_letter')->store('public/files');
 
@@ -45,6 +49,10 @@ class UserController extends Controller
     
     public function resume(Request $request)
     {
+        $this->validate($request, [
+            'resume' => 'required|mimes:pdf,doc,docx|size:20000'
+        ]);
+
         $user_id = auth()->user()->id;
         $resume = $request->file('resume')->store('public/files');
 
@@ -57,6 +65,10 @@ class UserController extends Controller
 
     public function avatar(Request $request)
     {
+        $this->validate($request, [
+            'avatar' => 'required|mimes:png,jpeg,jpg|size:20000'
+        ]);
+
         $user_id = auth()->user()->id;
 
         if ($request->hasfile('avatar'))
