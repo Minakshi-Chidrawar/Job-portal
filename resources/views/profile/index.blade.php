@@ -69,6 +69,7 @@
                     <p>Name: {{ Auth::user()->name }}</p>
                     <p>Email: {{ Auth::user()->email }}</p>
                     <p>Address: {{ Auth::user()->profile->address }}</p>
+                    <p>Phone: {{ Auth::user()->profile->phone_number }}</p>
                     <p>Gender: {{ Auth::user()->profile->gender }}</p>
                     <p>Experience: {{ Auth::user()->profile->experience }}</p>
                     <p>Bio: {{ Auth::user()->profile->bio }}</p>
