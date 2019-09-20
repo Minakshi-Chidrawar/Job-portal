@@ -14,6 +14,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'address' => 'required',
+            'bio' => 'required|min:20',
+            'experience' => 'required|min:20',
+            'phone_number' => 'required|min:10|numeric'
+        ]);
         $user_id = auth()->user()->id;
         Profile::where('user_id', $user_id)->update([
             'address' => request('address'),
