@@ -37,21 +37,45 @@
                         <div class="form-group">
                             <label for="">Address</label>
                             <input type="text" class="form-control" name="address" value="{{ Auth::user()->profile->address }}">
+
+                            @if($errors->has('address'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('address') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label for="">Phone Number</label>
                             <input type="text" class="form-control" name="phone_number" value="{{ Auth::user()->profile->phone_number }}">
+
+                            @if($errors->has('phone_number'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('phone_number') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label for="">Experience</label>
                             <textarea name="experience" class="form-control" id="" cols="30" rows="10">{{ Auth::user()->profile->experience }}</textarea>
+
+                            @if($errors->has('experience'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('experience') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label for="">Bio</label>
                             <textarea name="bio" class="form-control" id="" cols="30" rows="10">{{ Auth::user()->profile->bio }}</textarea>
+
+                            @if($errors->has('bio'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('bio') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-group">
