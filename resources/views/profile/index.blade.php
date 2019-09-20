@@ -19,6 +19,12 @@
                         <input type="file" class="form-control" name="avatar">
                         <br>
                         <button class="btn btn-success float-right">Update</button>
+
+                        @if($errors->has('avatar'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('avatar') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </form>
@@ -125,6 +131,12 @@
                         <input type="file" class="form-control" name="cover_letter">
                         <br>
                         <button class="btn btn-success float-right">Update</button>
+
+                        @if($errors->has('cover_letter'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('cover_letter') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </form>
@@ -138,6 +150,12 @@
                         <input type="file" class="form-control" name="resume">
                         <br>
                         <button class="btn btn-success float-right">Update</button>
+
+                        @if($errors->has('resume'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('resume') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </form>
