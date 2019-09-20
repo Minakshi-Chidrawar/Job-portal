@@ -3,10 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
-            <img src="{{ asset('avatar/man.png') }}" class="thumbnail">
+        <div class="col-md-3">
+            <img src="{{ asset('avatar/man.png') }}" width="100" class="full-width">
+            <br>
+            <br>
+            <form action="{{ route('avatar') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card">
+                    <div class="card-header">Update resume</div>
+                    <div class="card-body">
+                        <input type="file" class="form-control" name="avatar">
+                        <br>
+                        <button class="btn btn-success float-right">Update</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header">Update Your Profile</div>
                 <form action="{{ route('profile.create') }}" method="POST">
