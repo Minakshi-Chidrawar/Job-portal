@@ -24,6 +24,11 @@
             </form>
         </div>
         <div class="col-md-5">
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    {{ Session::get('message') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">Update Your Profile</div>
                 <form action="{{ route('profile.create') }}" method="POST">
@@ -32,6 +37,11 @@
                         <div class="form-group">
                             <label for="">Address</label>
                             <input type="text" class="form-control" name="address" value="{{ Auth::user()->profile->address }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Phone Number</label>
+                            <input type="text" class="form-control" name="phone_number" value="{{ Auth::user()->profile->phone_number }}">
                         </div>
 
                         <div class="form-group">
@@ -48,11 +58,6 @@
                             <button class="btn btn-success" type="submit">Update</button>
                         </div>                
                     </div>
-                    @if(Session::has('message'))
-                        <div class="alert alert-success">
-                            {{ Session::get('message') }}
-                        </div>
-                    @endif
                 </form>
             </div>
         </div>
