@@ -4,7 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <img src="{{ asset('avatar/man.png') }}" width="100" class="full-width">
+            @if(empty(Auth::user()->profile->avatar))
+                <img src="{{ asset('avatar/man.png') }}" width="100" class="full-width">
+            @else
+                <img src="{{ asset('uploads/avatar') }}/{{ Auth::user()->profile->avatar }}" width="100" class="full-width">
+            @endif
             <br>
             <br>
             <form action="{{ route('avatar') }}" method="POST" enctype="multipart/form-data">
