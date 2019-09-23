@@ -50,7 +50,7 @@ class UserController extends Controller
     public function resume(Request $request)
     {
         $this->validate($request, [
-            'resume' => 'required|mimes:pdf,doc,docx|size:20000'
+            'resume' => 'required|mimes:pdf,doc,docx'
         ]);
 
         $user_id = auth()->user()->id;
