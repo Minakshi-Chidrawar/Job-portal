@@ -48,7 +48,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employer.register') }}">{{ __('Emploer Register') }}</a>
+                                <a class="nav-link" href="{{ route('employer.register') }}">{{ __('Employer Register') }}</a>
                             </li>
 
                             @if (Route::has('register'))
@@ -59,7 +59,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if(Auth::user()->user_type = 'employer')
+                                    @if(Auth::user()->user_type='employer')
                                         {{ Auth::user()->company->cname }}
                                     @else
                                         {{ Auth::user()->name }} 
@@ -69,6 +69,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->user_type = 'employer')
+                                        <a class="dropdown-item" href="{{ route('company.view') }}">
+                                            {{ __('Company') }}
+                                        </a>
+                                    @else
+                                        <a class="dropdown-item" href="user/profile">
+                                            {{ __('Profile') }}
+                                        </a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
