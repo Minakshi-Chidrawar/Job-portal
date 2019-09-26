@@ -23,6 +23,7 @@ Route::get('company/{id}/{company}', 'CompanyController@index')->name('company.i
 Route::get('company/create', 'CompanyController@create')->name('company.view');
 Route::post('company/create', 'CompanyController@store')->name('company.store');
 Route::post('company/coverphoto', 'CompanyController@coverPhoto')->name('cover.photo');
+Route::post('company/logo', 'CompanyController@logo')->name('cover.logo');
 
 // User profile
 Route::get('user/profile', 'UserController@index');
