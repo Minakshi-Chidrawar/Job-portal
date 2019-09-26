@@ -4,25 +4,25 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            @if(empty(Auth::user()->profile->avatar))
+            @if(empty(Auth::user()->company->logo))
                 <img src="{{ asset('avatar/man.png') }}" width="100" class="full-width">
             @else
-                <img src="{{ asset('uploads/avatar') }}/{{ Auth::user()->profile->avatar }}" width="100" class="full-width">
+                <img src="{{ asset('uploads/logo') }}/{{ Auth::user()->company->logo }}" width="100" class="full-width">
             @endif
             <br>
             <br>
-            <form action="{{ route('avatar') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('cover.logo') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
                     <div class="card-header">Update logo</div>
                     <div class="card-body">
-                        <input type="file" class="form-control" name="avatar">
+                        <input type="file" class="form-control" name="logo">
                         <br>
                         <button class="btn btn-success float-right">Update</button>
 
-                        @if($errors->has('avatar'))
+                        @if($errors->has('logo'))
                             <div class="alert alert-danger">
-                                {{ $errors->first('avatar') }}
+                                {{ $errors->first('logo') }}
                             </div>
                         @endif
                     </div>
@@ -85,15 +85,15 @@
             <form action="{{ route('cover.photo') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
-                    <div class="card-header">Update coverletter</div>
+                    <div class="card-header">Update cover photo</div>
                     <div class="card-body">
                         <input type="file" class="form-control" name="cover_photo">
                         <br>
                         <button class="btn btn-success float-right">Update</button>
 
-                        @if($errors->has('cover_letter'))
+                        @if($errors->has('cover_photo'))
                             <div class="alert alert-danger">
-                                {{ $errors->first('cover_letter') }}
+                                {{ $errors->first('cover_photo') }}
                             </div>
                         @endif
                     </div>
