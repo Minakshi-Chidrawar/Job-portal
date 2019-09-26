@@ -10,7 +10,11 @@
                 <img src="{{asset('uploads/coverphoto')}}/{{ Auth::user()->company->cover_photo }}" class="full-width">
             @endif
             <div class="company-desc">
-                <img src="{{ asset('avatar/man.png')}}" class="thumbnail">
+                @if(empty(Auth::user()->company->logo))
+                    <img src="{{asset('avatar/man.png')}}" class="thumbnail">
+                @else
+                    <img src="{{asset('uploads/logo')}}/{{ Auth::user()->company->logo }}" class="thumbnail" style="border-radius: 50%">
+                @endif
                 <p>{{ $company->description }}</p>
                 <h1>{{ $company->cname }}</h1>
                 <p><strong>Slogan</strong> -{{ $company->slogan }}&nbsp;
