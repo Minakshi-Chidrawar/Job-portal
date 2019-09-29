@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Job;
 use App\Company;
 use Illuminate\Http\Request;
+use App\Http\Requests\JobPostRequest;
 
 class JobController extends Controller
 {
@@ -24,7 +25,7 @@ class JobController extends Controller
         return view('jobs.create');
     }
 
-    public function store(Request $request)
+    public function store(JobPostRequest $request)
     {
         $user_id = auth()->user()->id;
         $company = Company::where('user_id', $user_id)->first();
@@ -39,9 +40,12 @@ class JobController extends Controller
             'roles' => request('roles'),
             'category_id' => request('category'),
             'position' => request('position'),
-            
+            'address' => request('address'),
+            'type' => request('type'),
+            'status' => request('status'),
+            'last_date' => request('last_date')
         ]);
 
-        return view('jobs.create');
+        return redirect()->back()->with('message', 'Job posted successfully!');
     }
 }
