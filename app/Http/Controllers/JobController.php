@@ -9,6 +9,10 @@ use App\Http\Requests\JobPostRequest;
 
 class JobController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('employer', ['except' => array('index', 'show', 'apply')]);
+    }
     public function index()
     {
         $jobs = Job::all();
@@ -18,6 +22,25 @@ class JobController extends Controller
     public function show($id, Job $job)
     {
         return view('jobs.show', compact('job'));
+    }
+
+    public function company()
+    {
+        return view('company.index');
+    }
+
+    public function myJob()
+    {
+        $jobs = Job::where('user_id', auth()->user()->id)->get();
+        return view('jobs.myJob', compact('jobs'));
+    }
+
+    public function edit($id)
+    {
+        dd('it s expected');
+        $jobs = Job::findOrFail($id);
+
+        return view ('jobs.edit', compact('jobs'));
     }
 
     public function create()
