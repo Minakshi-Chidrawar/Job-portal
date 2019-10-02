@@ -18,8 +18,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 // job
 Route::get('/', 'JobController@index');
 Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
-Route::get('/jobs/create', 'JobController@create');
+Route::get('/jobs/create', 'JobController@create')->name('job.create');
 Route::post('/jobs/create', 'JobController@store')->name('job.store');
+Route::get('/jobs/my-job', 'JobController@myJob')->name('my.job');
+Route::get('/jobs/{id}/edit', 'JobController@edit')->name('job.edit');
+
 
 //company
 Route::get('company/{id}/{company}', 'CompanyController@index')->name('company.index');
