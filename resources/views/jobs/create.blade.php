@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Description:</label>
-                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('description') }}" required autocomplete="description"></textarea>
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" required autocomplete="description">{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('description') }}</strong>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="roles">Role:</label>
-                            <textarea name="roles" class="form-control @error('roles') is-invalid @enderror" value="{{ old('roles') }}" required autocomplete="roles"></textarea>
+                            <textarea name="roles" class="form-control @error('roles') is-invalid @enderror" required autocomplete="roles">{{ old('roles') }}</textarea>
                             @error('roles')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('roles') }}</strong>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <label for="lastdate">Last date:</label>
-                            <input type="date" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('lasr_date') }}" required autocomplete="last_date">
+                            <input type="text" id="datepicker" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('lasr_date') }}" required autocomplete="last_date">
                             @error('last_date')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('last_date') }}</strong>
