@@ -20,9 +20,9 @@ Route::get('/', 'JobController@index');
 Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
 Route::get('/jobs/create', 'JobController@create')->name('job.create');
 Route::post('/jobs/create', 'JobController@store')->name('job.store');
-Route::get('/jobs/my-job', 'JobController@myJob')->name('my.job');
 Route::get('/jobs/{id}/edit', 'JobController@edit')->name('job.edit');
-
+Route::post('/jobs/{id}/edit', 'JobController@update')->name('job.update');
+Route::get('/jobs/my-job', 'JobController@myJob')->name('my.job');
 
 //company
 Route::get('company/{id}/{company}', 'CompanyController@index')->name('company.index');
@@ -41,3 +41,5 @@ Route::post('user/avatar', 'UserController@avatar')->name('avatar');
 //employer view
 Route::view('employer/register', 'auth.employer-register')->name('employer.register');
 Route::post('employer/register', 'EmployerRegisterController@employerRegister')->name('emp.register');
+
+Route::post('/applications/{id}', 'JobController@apply')->name('apply');
