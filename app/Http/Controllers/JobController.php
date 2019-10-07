@@ -54,6 +54,13 @@ class JobController extends Controller
         return redirect()->back()->with('message', 'Job updated successfully!');
     }
 
+    public function applicant()
+    {
+        $applicants = Job::has('users')->where('user_id', auth()->user()->id)->get();
+        //dd($applicants);
+        return view('jobs.applicants', compact('applicants'));
+    }
+
     public function create()
     {
         return view('jobs.create');
