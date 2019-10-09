@@ -24,7 +24,7 @@ Route::get('/jobs/{id}/edit', 'JobController@edit')->name('job.edit');
 Route::post('/jobs/{id}/edit', 'JobController@update')->name('job.update');
 Route::get('/jobs/my-job', 'JobController@myJob')->name('my.job');
 
-Route::get('/jobs/applications', 'JobController@applicant');
+Route::get('/jobs/applications', 'JobController@applicant')->name('applicant');
 
 //company
 Route::get('company/{id}/{company}', 'CompanyController@index')->name('company.index');
