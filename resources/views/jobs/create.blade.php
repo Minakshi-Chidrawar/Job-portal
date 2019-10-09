@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <label for="lastdate">Last date:</label>
-                            <input type="text" id="datepicker" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('lasr_date') }}" required autocomplete="last_date">
+                            <input type="text" id="datepicker" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}" required autocomplete="last_date">
                             @error('last_date')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('last_date') }}</strong>
