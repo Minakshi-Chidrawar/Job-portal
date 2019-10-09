@@ -38,7 +38,7 @@
                                     </a>
                                     <a href="{{ route('job.edit', [$job->id]) }}">
                                         <button class="btn btn-warning btn-sm">Edit</button>
-                                    </a>
+                                    </a>                                    
                                 </td>
                             </tr>
                             @endforeach
